@@ -65,4 +65,5 @@ void nuevaInscripcion()
     Tiquetera.AgregarCliente(unCliente);
     Tiquetera.DevolverUltimoId();
     
+    
 }
