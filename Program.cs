@@ -1,5 +1,4 @@
 ﻿int opcion;
-Cliente unCliente;
 do
 {
     menu();
@@ -8,8 +7,7 @@ do
     switch (opcion)
     {
         case 1:
-            unCliente= nuevaInscripcion();
-            
+            nuevaInscripcion();
             break;
         case 2:
 
@@ -35,7 +33,8 @@ void menu()
     Console.WriteLine("4. Cambiar entrada de un Cliente");
     Console.WriteLine("Salir.");
 }
-void tiposEntradas(){
+void tiposEntradas()
+{
     Console.WriteLine("Opción 1 - Día 1 , valor a abonar $15000");
     Console.WriteLine("Opción 2 - Día 2, valor a abonar $30000");
     Console.WriteLine("Opción 3 - Día 3, valor a abonar $10000");
@@ -55,13 +54,15 @@ string IngresarTexto(string v)
     text = Console.ReadLine();
     return text;
 }
-Cliente nuevaInscripcion()
+void nuevaInscripcion()
 {
-    int dni=IngresarEntero("Ingrese su DNI");
-    string ape=IngresarTexto("Ingrese su apellido");
-    string nom=IngresarTexto("Ingrese su nombre");
+    int dni = IngresarEntero("Ingrese su DNI");
+    string ape = IngresarTexto("Ingrese su apellido");
+    string nom = IngresarTexto("Ingrese su nombre");
     tiposEntradas();
-    int tipEnt=IngresarEntero("Ingrese el tipo de entrada que desea");
-    Cliente unCliente=new Cliente (dni,ape,nom,tipEnt);
-    return unCliente;
+    int tipEnt = IngresarEntero("Ingrese el tipo de entrada que desea");
+    Cliente unCliente = new Cliente(dni, ape, nom, tipEnt);
+    Tiquetera.AgregarCliente(unCliente);
+    Tiquetera.DevolverUltimoId();
+    
 }
